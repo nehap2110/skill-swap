@@ -31,6 +31,7 @@ exports.getUsers = async (req, res) => {
 exports.getProfile = async (req, res) => {
   try {
     // ✅ Check if user exists
+    console.log("User ID from token:", req.user.id);
     const user = await User.findById(req.user.id).select("-password");
 
     if (!user) {
